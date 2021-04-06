@@ -19,12 +19,14 @@ To run the microfrontends you need to start each Maven project separately. Each 
 
 Go to each Maven project
 
-- Order: microfrontends-order/microfrontends-order-client
+- **Order**: microfrontends-order/microfrontends-order-client
 - Support: microfrontends-support/microfrontends-support-client
 - Platform: microfrontends-platform/microfrontends-platform-client
 
-... and run:
+... and run for each project:
 
 ```
 mvn gwt:generate-module gwt:devmode
 ```
+
+So you will have three GWT devmode instances.
