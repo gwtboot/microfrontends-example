@@ -32,33 +32,6 @@ public interface PlatformClientBundle extends ClientBundle {
 	interface PlatformConstants extends Constants {
 		@DefaultStringValue("Platform")
 		String appTitle();
-
-		@DefaultStringValue("Platform Title")
-		String title();
-
-		@DefaultStringValue("Platform Description")
-		String description();
-
-		@DefaultStringValue("Platform Priority")
-		String priority();
-
-		@DefaultStringValue("Platform Add")
-		String add();
-
-		@DefaultStringValue("Platform Mark Done")
-		String mark_done();
-
-		@DefaultStringValue("Platform New Todo")
-		String new_todo();
-
-		@DefaultStringValue("Platform Add a new todo list item")
-		String add_new_todo();
-
-		@DefaultStringValue("Platform Todo Items")
-		String todo_items();
-
-		@DefaultStringValue("Platform Done Items")
-		String done_items();
 	}
 
 	interface PlatformCssResource extends CssResource {

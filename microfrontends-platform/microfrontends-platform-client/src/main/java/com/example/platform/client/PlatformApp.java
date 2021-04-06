@@ -25,7 +25,6 @@ import java.util.logging.Logger;
 import org.dominokit.domino.ui.layout.Layout;
 import org.dominokit.domino.ui.style.ColorScheme;
 
-import com.example.platform.client.ui.PlatformView;
 import com.google.gwt.core.client.Callback;
 import com.google.gwt.core.client.ScriptInjector;
 
@@ -45,10 +44,6 @@ public class PlatformApp {
 
 	private void initLayout() {
 		Layout layout = Layout.create(CONSTANTS.appTitle()).removeLeftPanel().show(ColorScheme.BLUE);
-
-		PlatformView platformView = new PlatformView();
-
-		layout.getContentPanel().appendChild(platformView.element());
 
 		DomGlobal.document.getElementById("platformContainer").appendChild(layout.element());
 	}

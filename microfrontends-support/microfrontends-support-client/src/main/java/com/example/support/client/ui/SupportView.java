@@ -126,12 +126,15 @@ public class SupportView implements IsElement<HTMLDivElement> {
 		this.addButton = Button.createPrimary(CONSTANTS.add()).styler(style -> style.add(BUNDLE.css().addButton()))
 				.addClickListener(evt -> handleAddButtonClick());
 
-		root.appendChild(Card.create(CONSTANTS.new_todo(), CONSTANTS.add_new_todo()).appendChild(titleTextBox)
-				.appendChild(descriptionTextArea).appendChild(prioritySelect).appendChild(addButton).element());
+		root.appendChild(Card.create(CONSTANTS.new_todo(), CONSTANTS.add_new_todo()).setHeaderBackground(Color.AMBER)
+				.appendChild(titleTextBox).appendChild(descriptionTextArea).appendChild(prioritySelect)
+				.appendChild(addButton).element());
 
-		root.appendChild(Card.create(CONSTANTS.todo_items()).appendChild(todoItemsListGroup).element());
+		root.appendChild(Card.create(CONSTANTS.todo_items()).setHeaderBackground(Color.AMBER)
+				.appendChild(todoItemsListGroup).element());
 
-		root.appendChild(Card.create(CONSTANTS.done_items()).appendChild(doneItemsListGroup).element());
+		root.appendChild(Card.create(CONSTANTS.done_items()).setHeaderBackground(Color.AMBER)
+				.appendChild(doneItemsListGroup).element());
 	}
 
 	void handleAddButtonClick() {
