@@ -24,14 +24,12 @@ import java.util.logging.Logger;
 
 import org.dominokit.domino.ui.layout.Layout;
 import org.dominokit.domino.ui.style.ColorScheme;
-import org.dominokit.domino.ui.utils.DominoElement;
 
 import com.example.platform.client.ui.PlatformView;
 import com.google.gwt.core.client.Callback;
 import com.google.gwt.core.client.ScriptInjector;
 
 import elemental2.dom.DomGlobal;
-import elemental2.dom.HTMLDivElement;
 
 public class PlatformApp {
 
@@ -50,9 +48,9 @@ public class PlatformApp {
 
 		PlatformView platformView = new PlatformView();
 
-		DominoElement<HTMLDivElement> view = layout.getContentPanel().appendChild(platformView.element());
+		layout.getContentPanel().appendChild(platformView.element());
 
-		DomGlobal.document.getElementById("platformContainer").appendChild(view.element());
+		DomGlobal.document.getElementById("platformContainer").appendChild(layout.element());
 	}
 
 	private void injectScript(String scriptUrl) {
