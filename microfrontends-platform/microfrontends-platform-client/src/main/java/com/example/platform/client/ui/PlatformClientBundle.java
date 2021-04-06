@@ -33,35 +33,35 @@ public interface PlatformClientBundle extends ClientBundle {
         @DefaultStringValue("Platform")
         String appTitle();
 
-        @DefaultStringValue("Title")
+        @DefaultStringValue("Platform Title")
         String title();
 
-        @DefaultStringValue("Description")
+        @DefaultStringValue("Platform Description")
         String description();
 
-        @DefaultStringValue("Priority")
+        @DefaultStringValue("Platform Priority")
         String priority();
 
-        @DefaultStringValue("Add")
+        @DefaultStringValue("Platform Add")
         String add();
 
-        @DefaultStringValue("Mark Done")
+        @DefaultStringValue("Platform Mark Done")
         String mark_done();
 
-        @DefaultStringValue("Platform: New Todo")
+        @DefaultStringValue("Platform New Todo")
         String new_todo();
 
-        @DefaultStringValue("Add a new todo list item")
+        @DefaultStringValue("Platform Add a new todo list item")
         String add_new_todo();
 
-        @DefaultStringValue("Todo Items")
+        @DefaultStringValue("Platform Todo Items")
         String todo_items();
 
-        @DefaultStringValue("Done Items")
+        @DefaultStringValue("Platform Done Items")
         String done_items();
     }
 
-    interface HelloWorldCssResource extends CssResource {
+    interface PlatformCssResource extends CssResource {
         String addButton();
 
         String doneButton();
@@ -70,5 +70,5 @@ public interface PlatformClientBundle extends ClientBundle {
     }
 
     @Source("platform.gss")
-    HelloWorldCssResource css();
+    PlatformCssResource css();
 }

@@ -33,35 +33,35 @@ public interface SupportClientBundle extends ClientBundle {
         @DefaultStringValue("Support")
         String appTitle();
 
-        @DefaultStringValue("Title")
+        @DefaultStringValue("Support Title")
         String title();
 
-        @DefaultStringValue("Description")
+        @DefaultStringValue("Support Description")
         String description();
 
-        @DefaultStringValue("Priority")
+        @DefaultStringValue("Support Priority")
         String priority();
 
-        @DefaultStringValue("Add")
+        @DefaultStringValue("Support Add")
         String add();
 
-        @DefaultStringValue("Mark Done")
+        @DefaultStringValue("Support Mark Done")
         String mark_done();
 
-        @DefaultStringValue("Support: New Todo")
+        @DefaultStringValue("Support New Todo")
         String new_todo();
 
-        @DefaultStringValue("Add a new todo list item")
+        @DefaultStringValue("Support Add a new todo list item")
         String add_new_todo();
 
-        @DefaultStringValue("Todo Items")
+        @DefaultStringValue("Support Todo Items")
         String todo_items();
 
-        @DefaultStringValue("Done Items")
+        @DefaultStringValue("Support Done Items")
         String done_items();
     }
 
-    interface HelloWorldCssResource extends CssResource {
+    interface SupportCssResource extends CssResource {
         String addButton();
 
         String doneButton();
@@ -70,5 +70,5 @@ public interface SupportClientBundle extends ClientBundle {
     }
 
     @Source("support.gss")
-    HelloWorldCssResource css();
+    SupportCssResource css();
 }

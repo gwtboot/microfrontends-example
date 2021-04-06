@@ -33,35 +33,35 @@ public interface OrderClientBundle extends ClientBundle {
         @DefaultStringValue("Order")
         String appTitle();
 
-        @DefaultStringValue("Title")
+        @DefaultStringValue("Order Title")
         String title();
 
-        @DefaultStringValue("Description")
+        @DefaultStringValue("Order Description")
         String description();
 
-        @DefaultStringValue("Priority")
+        @DefaultStringValue("Order Priority")
         String priority();
 
-        @DefaultStringValue("Add")
+        @DefaultStringValue("Order Add")
         String add();
 
-        @DefaultStringValue("Mark Done")
+        @DefaultStringValue("Order Mark Done")
         String mark_done();
 
-        @DefaultStringValue("Order: New Todo")
+        @DefaultStringValue("Order New Todo")
         String new_todo();
 
-        @DefaultStringValue("Add a new todo list item")
+        @DefaultStringValue("Order Add a new todo list item")
         String add_new_todo();
 
-        @DefaultStringValue("Todo Items")
+        @DefaultStringValue("Order Todo Items")
         String todo_items();
 
-        @DefaultStringValue("Done Items")
+        @DefaultStringValue("Order Done Items")
         String done_items();
     }
 
-    interface HelloWorldCssResource extends CssResource {
+    interface OrderCssResource extends CssResource {
         String addButton();
 
         String doneButton();
@@ -70,5 +70,5 @@ public interface OrderClientBundle extends ClientBundle {
     }
 
     @Source("order.gss")
-    HelloWorldCssResource css();
+    OrderCssResource css();
 }

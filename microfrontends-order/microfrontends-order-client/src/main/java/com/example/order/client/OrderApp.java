@@ -18,29 +18,15 @@
  */
 package com.example.order.client;
 
-import static com.example.order.client.ui.OrderClientBundle.CONSTANTS;
-
-import org.dominokit.domino.ui.layout.Layout;
-import org.dominokit.domino.ui.style.ColorScheme;
-import org.dominokit.domino.ui.utils.DominoElement;
-
 import com.example.order.client.ui.OrderView;
 
 import elemental2.dom.DomGlobal;
-import elemental2.dom.HTMLDivElement;
 
 public class OrderApp {
 
     public void run() {
-        Layout layout = Layout.create(CONSTANTS.appTitle())
-                .removeLeftPanel()
-                .show(ColorScheme.GREEN);
-
         OrderView orderView = new OrderView();
-
-        DominoElement<HTMLDivElement> view = layout.getContentPanel()
-                .appendChild(orderView.element());
         
-        DomGlobal.document.getElementById("orderContainer").appendChild(view.element());
+        DomGlobal.document.getElementById("orderContainer").appendChild(orderView.element());
     }
 }
