@@ -34,12 +34,12 @@ public class PlatformApp {
 
 	private static Logger logger = Logger.getLogger(PlatformApp.class.getName());
 
-	private static String ORDER_JS = "http://localhost:9999/order/order.nocache.js";
+	private static String MICROFRONTENDS_ORDER_CLIENT = "http://localhost:9999/order/order.nocache.js";
 
-	private static String SUPPORT_JS = "http://localhost:7777/support/support.nocache.js";
+	private static String MICROFRONTENDS_SUPPORT_CLIENT = "http://localhost:7777/support/support.nocache.js";
 
 	public void run() {
-		injectScript(ORDER_JS);
+		injectScript(MICROFRONTENDS_ORDER_CLIENT);
 	}
 
 	private void initLayout() {
@@ -56,12 +56,12 @@ public class PlatformApp {
 
 			public void onSuccess(Void result) {
 				logger.info("Script load success: " + scriptUrl);
-				if (scriptUrl.equals(SUPPORT_JS)) {
+				if (scriptUrl.equals(MICROFRONTENDS_SUPPORT_CLIENT)) {
 					// End this call
 					initLayout();
 				} else {
 					// Next JS injection
-					injectScript(SUPPORT_JS);
+					injectScript(MICROFRONTENDS_SUPPORT_CLIENT);
 				}
 			}
 		}).setWindow(ScriptInjector.TOP_WINDOW).inject();
