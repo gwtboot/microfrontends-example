@@ -34,4 +34,4 @@ mvn gwt:generate-module gwt:devmode
 ```
 
 So you will have three GWT devmode instances. After that just "Copy to Clipboard" the web app address into your web browser
-and run it.
+and run it just like the screenshots above.
