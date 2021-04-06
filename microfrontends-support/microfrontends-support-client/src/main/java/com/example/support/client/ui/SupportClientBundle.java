@@ -27,9 +27,9 @@ public interface SupportClientBundle extends ClientBundle {
 
     SupportClientBundle BUNDLE = GWT.create(SupportClientBundle.class);
 
-    HelloWorldConstants CONSTANTS = GWT.create(HelloWorldConstants.class);
+    SupportConstants CONSTANTS = GWT.create(SupportConstants.class);
 
-    interface HelloWorldConstants extends Constants {
+    interface SupportConstants extends Constants {
         @DefaultStringValue("Support")
         String appTitle();
 

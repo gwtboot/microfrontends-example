@@ -30,7 +30,7 @@ public class DominoEntryPoint implements EntryPoint {
 
     @Override
     public void onModuleLoad() {
-        logger.info("Inject clientBundle");
+        logger.info("Inject clientBundle: Support");
         SupportClientBundle.BUNDLE.css().ensureInjected();
 
         new SupportApp().run();

@@ -27,9 +27,9 @@ public interface OrderClientBundle extends ClientBundle {
 
     OrderClientBundle BUNDLE = GWT.create(OrderClientBundle.class);
 
-    HelloWorldConstants CONSTANTS = GWT.create(HelloWorldConstants.class);
+    OrderConstants CONSTANTS = GWT.create(OrderConstants.class);
 
-    interface HelloWorldConstants extends Constants {
+    interface OrderConstants extends Constants {
         @DefaultStringValue("Order")
         String appTitle();
 

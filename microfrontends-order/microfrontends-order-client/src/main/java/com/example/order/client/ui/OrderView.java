@@ -67,7 +67,7 @@ public class OrderView implements IsElement<HTMLDivElement> {
     private FieldsGrouping fieldsGrouping;
 
     public OrderView() {
-        logger.info("Create HelloWorldView");
+        logger.info("Create OrderView");
 
         fieldsGrouping = FieldsGrouping.create();
 

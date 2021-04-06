@@ -20,27 +20,57 @@ package com.example.platform.client;
 
 import static com.example.platform.client.ui.PlatformClientBundle.CONSTANTS;
 
+import java.util.logging.Logger;
+
 import org.dominokit.domino.ui.layout.Layout;
 import org.dominokit.domino.ui.style.ColorScheme;
 import org.dominokit.domino.ui.utils.DominoElement;
 
 import com.example.platform.client.ui.PlatformView;
+import com.google.gwt.core.client.Callback;
+import com.google.gwt.core.client.ScriptInjector;
 
 import elemental2.dom.DomGlobal;
 import elemental2.dom.HTMLDivElement;
 
 public class PlatformApp {
 
-    public void run() {
-        Layout layout = Layout.create(CONSTANTS.appTitle())
-                .removeLeftPanel()
-                .show(ColorScheme.BLUE);
+	private static Logger logger = Logger.getLogger(PlatformApp.class.getName());
 
-        PlatformView platformView = new PlatformView();
-        
-        DominoElement<HTMLDivElement> view = layout.getContentPanel()
-                .appendChild(platformView.element());
-        
-        DomGlobal.document.getElementById("platformContainer").appendChild(view.element());
-    }
+	private static String ORDER_JS = "http://localhost:9999/order/order.nocache.js";
+
+	private static String SUPPORT_JS = "http://localhost:7777/support/support.nocache.js";
+
+	public void run() {
+		injectScript(ORDER_JS);
+	}
+
+	private void initLayout() {
+		Layout layout = Layout.create(CONSTANTS.appTitle()).removeLeftPanel().show(ColorScheme.BLUE);
+
+		PlatformView platformView = new PlatformView();
+
+		DominoElement<HTMLDivElement> view = layout.getContentPanel().appendChild(platformView.element());
+
+		DomGlobal.document.getElementById("platformContainer").appendChild(view.element());
+	}
+
+	private void injectScript(String scriptUrl) {
+		ScriptInjector.fromUrl(scriptUrl).setCallback(new Callback<Void, Exception>() {
+			public void onFailure(Exception reason) {
+				logger.info("Script load failed: " + scriptUrl);
+			}
+
+			public void onSuccess(Void result) {
+				logger.info("Script load success: " + scriptUrl);
+				if (scriptUrl.equals(SUPPORT_JS)) {
+					// End this call
+					initLayout();
+				} else {
+					// Next JS injection
+					injectScript(SUPPORT_JS);
+				}
+			}
+		}).setWindow(ScriptInjector.TOP_WINDOW).inject();
+	}
 }

@@ -67,7 +67,7 @@ public class SupportView implements IsElement<HTMLDivElement> {
     private FieldsGrouping fieldsGrouping;
 
     public SupportView() {
-        logger.info("Create HelloWorldView");
+        logger.info("Create SupportView");
 
         fieldsGrouping = FieldsGrouping.create();
 

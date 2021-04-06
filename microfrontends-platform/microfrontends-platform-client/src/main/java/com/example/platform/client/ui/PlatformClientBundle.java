@@ -27,9 +27,9 @@ public interface PlatformClientBundle extends ClientBundle {
 
     PlatformClientBundle BUNDLE = GWT.create(PlatformClientBundle.class);
 
-    HelloWorldConstants CONSTANTS = GWT.create(HelloWorldConstants.class);
+    PlatformConstants CONSTANTS = GWT.create(PlatformConstants.class);
 
-    interface HelloWorldConstants extends Constants {
+    interface PlatformConstants extends Constants {
         @DefaultStringValue("Platform")
         String appTitle();
 

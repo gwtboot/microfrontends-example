@@ -67,7 +67,7 @@ public class PlatformView implements IsElement<HTMLDivElement> {
     private FieldsGrouping fieldsGrouping;
 
     public PlatformView() {
-        logger.info("Create HelloWorldView");
+        logger.info("Create PlatformView");
 
         fieldsGrouping = FieldsGrouping.create();
 
