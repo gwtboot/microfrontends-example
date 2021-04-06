@@ -1,0 +1,17 @@
+/** Add css rules here for your application. */
+
+.addButton {
+    min-width: 120px !important;
+}
+
+.doneButton {
+    margin-left: 10px;
+    top : -12px;
+}
+
+@media screen and (min-width: 992px) {
+    .contentMargin {
+        margin-left: 20% !important;
+        margin-right: 20% !important;
+    }
+}
