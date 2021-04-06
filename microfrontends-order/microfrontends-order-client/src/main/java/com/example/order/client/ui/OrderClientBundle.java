@@ -48,7 +48,7 @@ public interface OrderClientBundle extends ClientBundle {
         @DefaultStringValue("Mark Done")
         String mark_done();
 
-        @DefaultStringValue("New Todo")
+        @DefaultStringValue("Order: New Todo")
         String new_todo();
 
         @DefaultStringValue("Add a new todo list item")

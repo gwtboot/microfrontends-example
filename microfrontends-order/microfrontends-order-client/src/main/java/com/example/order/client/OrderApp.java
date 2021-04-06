@@ -41,6 +41,6 @@ public class OrderApp {
         DominoElement<HTMLDivElement> view = layout.getContentPanel()
                 .appendChild(orderView.element());
         
-        DomGlobal.document.getElementById("platformContainer").appendChild(view.element());
+        DomGlobal.document.getElementById("orderContainer").appendChild(view.element());
     }
 }

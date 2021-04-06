@@ -41,6 +41,6 @@ public class SupportApp {
         DominoElement<HTMLDivElement> view = layout.getContentPanel()
                 .appendChild(supportView.element());
         
-        DomGlobal.document.getElementById("platformContainer").appendChild(view.element());
+        DomGlobal.document.getElementById("supportContainer").appendChild(view.element());
     }
 }
