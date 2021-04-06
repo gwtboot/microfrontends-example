@@ -26,44 +26,44 @@ public class TodoItem implements Serializable {
 
 	private String title;
 
-    private String description;
-    
-    private Priority priority;
+	private String description;
 
-    public TodoItem() {
-    }
+	private Priority priority;
 
-    public TodoItem(String title, String description, Priority priority) {
-        this.title = title;
-        this.description = description;
-        this.priority = priority;
-    }
+	public TodoItem() {
+	}
 
-    public String getTitle() {
-        return title;
-    }
+	public TodoItem(String title, String description, Priority priority) {
+		this.title = title;
+		this.description = description;
+		this.priority = priority;
+	}
 
-    public void setTitle(String title) {
-        this.title = title;
-    }
+	public String getTitle() {
+		return title;
+	}
 
-    public String getDescription() {
-        return description;
-    }
+	public void setTitle(String title) {
+		this.title = title;
+	}
 
-    public void setDescription(String description) {
-        this.description = description;
-    }
+	public String getDescription() {
+		return description;
+	}
 
-    public Priority getPriority() {
-        return priority;
-    }
+	public void setDescription(String description) {
+		this.description = description;
+	}
 
-    public void setPriority(Priority priority) {
-        this.priority = priority;
-    }
+	public Priority getPriority() {
+		return priority;
+	}
 
-    public enum Priority {
-        High, Medium, Low;
-    }
+	public void setPriority(Priority priority) {
+		this.priority = priority;
+	}
+
+	public enum Priority {
+		High, Medium, Low;
+	}
 }

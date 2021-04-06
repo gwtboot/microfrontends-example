@@ -24,9 +24,9 @@ import elemental2.dom.DomGlobal;
 
 public class OrderApp {
 
-    public void run() {
-        OrderView orderView = new OrderView();
-        
-        DomGlobal.document.getElementById("orderContainer").appendChild(orderView.element());
-    }
+	public void run() {
+		OrderView orderView = new OrderView();
+
+		DomGlobal.document.getElementById("orderContainer").appendChild(orderView.element());
+	}
 }

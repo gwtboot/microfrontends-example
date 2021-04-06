@@ -25,50 +25,50 @@ import com.google.gwt.resources.client.CssResource;
 
 public interface OrderClientBundle extends ClientBundle {
 
-    OrderClientBundle BUNDLE = GWT.create(OrderClientBundle.class);
+	OrderClientBundle BUNDLE = GWT.create(OrderClientBundle.class);
 
-    OrderConstants CONSTANTS = GWT.create(OrderConstants.class);
+	OrderConstants CONSTANTS = GWT.create(OrderConstants.class);
 
-    interface OrderConstants extends Constants {
-        @DefaultStringValue("Order")
-        String appTitle();
+	interface OrderConstants extends Constants {
+		@DefaultStringValue("Order")
+		String appTitle();
 
-        @DefaultStringValue("Order Title")
-        String title();
+		@DefaultStringValue("Order Title")
+		String title();
 
-        @DefaultStringValue("Order Description")
-        String description();
+		@DefaultStringValue("Order Description")
+		String description();
 
-        @DefaultStringValue("Order Priority")
-        String priority();
+		@DefaultStringValue("Order Priority")
+		String priority();
 
-        @DefaultStringValue("Order Add")
-        String add();
+		@DefaultStringValue("Order Add")
+		String add();
 
-        @DefaultStringValue("Order Mark Done")
-        String mark_done();
+		@DefaultStringValue("Order Mark Done")
+		String mark_done();
 
-        @DefaultStringValue("Order New Todo")
-        String new_todo();
+		@DefaultStringValue("Order New Todo")
+		String new_todo();
 
-        @DefaultStringValue("Order Add a new todo list item")
-        String add_new_todo();
+		@DefaultStringValue("Order Add a new todo list item")
+		String add_new_todo();
 
-        @DefaultStringValue("Order Todo Items")
-        String todo_items();
+		@DefaultStringValue("Order Todo Items")
+		String todo_items();
 
-        @DefaultStringValue("Order Done Items")
-        String done_items();
-    }
+		@DefaultStringValue("Order Done Items")
+		String done_items();
+	}
 
-    interface OrderCssResource extends CssResource {
-        String addButton();
+	interface OrderCssResource extends CssResource {
+		String addButton();
 
-        String doneButton();
+		String doneButton();
 
-        String contentMargin();
-    }
+		String contentMargin();
+	}
 
-    @Source("order.gss")
-    OrderCssResource css();
+	@Source("order.gss")
+	OrderCssResource css();
 }

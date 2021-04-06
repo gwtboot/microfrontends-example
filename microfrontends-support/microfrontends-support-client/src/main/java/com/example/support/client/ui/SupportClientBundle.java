@@ -25,50 +25,50 @@ import com.google.gwt.resources.client.CssResource;
 
 public interface SupportClientBundle extends ClientBundle {
 
-    SupportClientBundle BUNDLE = GWT.create(SupportClientBundle.class);
+	SupportClientBundle BUNDLE = GWT.create(SupportClientBundle.class);
 
-    SupportConstants CONSTANTS = GWT.create(SupportConstants.class);
+	SupportConstants CONSTANTS = GWT.create(SupportConstants.class);
 
-    interface SupportConstants extends Constants {
-        @DefaultStringValue("Support")
-        String appTitle();
+	interface SupportConstants extends Constants {
+		@DefaultStringValue("Support")
+		String appTitle();
 
-        @DefaultStringValue("Support Title")
-        String title();
+		@DefaultStringValue("Support Title")
+		String title();
 
-        @DefaultStringValue("Support Description")
-        String description();
+		@DefaultStringValue("Support Description")
+		String description();
 
-        @DefaultStringValue("Support Priority")
-        String priority();
+		@DefaultStringValue("Support Priority")
+		String priority();
 
-        @DefaultStringValue("Support Add")
-        String add();
+		@DefaultStringValue("Support Add")
+		String add();
 
-        @DefaultStringValue("Support Mark Done")
-        String mark_done();
+		@DefaultStringValue("Support Mark Done")
+		String mark_done();
 
-        @DefaultStringValue("Support New Todo")
-        String new_todo();
+		@DefaultStringValue("Support New Todo")
+		String new_todo();
 
-        @DefaultStringValue("Support Add a new todo list item")
-        String add_new_todo();
+		@DefaultStringValue("Support Add a new todo list item")
+		String add_new_todo();
 
-        @DefaultStringValue("Support Todo Items")
-        String todo_items();
+		@DefaultStringValue("Support Todo Items")
+		String todo_items();
 
-        @DefaultStringValue("Support Done Items")
-        String done_items();
-    }
+		@DefaultStringValue("Support Done Items")
+		String done_items();
+	}
 
-    interface SupportCssResource extends CssResource {
-        String addButton();
+	interface SupportCssResource extends CssResource {
+		String addButton();
 
-        String doneButton();
+		String doneButton();
 
-        String contentMargin();
-    }
+		String contentMargin();
+	}
 
-    @Source("support.gss")
-    SupportCssResource css();
+	@Source("support.gss")
+	SupportCssResource css();
 }

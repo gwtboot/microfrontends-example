@@ -25,50 +25,50 @@ import com.google.gwt.resources.client.CssResource;
 
 public interface PlatformClientBundle extends ClientBundle {
 
-    PlatformClientBundle BUNDLE = GWT.create(PlatformClientBundle.class);
+	PlatformClientBundle BUNDLE = GWT.create(PlatformClientBundle.class);
 
-    PlatformConstants CONSTANTS = GWT.create(PlatformConstants.class);
+	PlatformConstants CONSTANTS = GWT.create(PlatformConstants.class);
 
-    interface PlatformConstants extends Constants {
-        @DefaultStringValue("Platform")
-        String appTitle();
+	interface PlatformConstants extends Constants {
+		@DefaultStringValue("Platform")
+		String appTitle();
 
-        @DefaultStringValue("Platform Title")
-        String title();
+		@DefaultStringValue("Platform Title")
+		String title();
 
-        @DefaultStringValue("Platform Description")
-        String description();
+		@DefaultStringValue("Platform Description")
+		String description();
 
-        @DefaultStringValue("Platform Priority")
-        String priority();
+		@DefaultStringValue("Platform Priority")
+		String priority();
 
-        @DefaultStringValue("Platform Add")
-        String add();
+		@DefaultStringValue("Platform Add")
+		String add();
 
-        @DefaultStringValue("Platform Mark Done")
-        String mark_done();
+		@DefaultStringValue("Platform Mark Done")
+		String mark_done();
 
-        @DefaultStringValue("Platform New Todo")
-        String new_todo();
+		@DefaultStringValue("Platform New Todo")
+		String new_todo();
 
-        @DefaultStringValue("Platform Add a new todo list item")
-        String add_new_todo();
+		@DefaultStringValue("Platform Add a new todo list item")
+		String add_new_todo();
 
-        @DefaultStringValue("Platform Todo Items")
-        String todo_items();
+		@DefaultStringValue("Platform Todo Items")
+		String todo_items();
 
-        @DefaultStringValue("Platform Done Items")
-        String done_items();
-    }
+		@DefaultStringValue("Platform Done Items")
+		String done_items();
+	}
 
-    interface PlatformCssResource extends CssResource {
-        String addButton();
+	interface PlatformCssResource extends CssResource {
+		String addButton();
 
-        String doneButton();
+		String doneButton();
 
-        String contentMargin();
-    }
+		String contentMargin();
+	}
 
-    @Source("platform.gss")
-    PlatformCssResource css();
+	@Source("platform.gss")
+	PlatformCssResource css();
 }

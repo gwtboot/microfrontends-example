@@ -25,14 +25,13 @@ import com.google.gwt.core.client.EntryPoint;
 
 public class DominoEntryPoint implements EntryPoint {
 
-    private static Logger logger = Logger
-            .getLogger(DominoEntryPoint.class.getName());
+	private static Logger logger = Logger.getLogger(DominoEntryPoint.class.getName());
 
-    @Override
-    public void onModuleLoad() {
-        logger.info("Inject clientBundle: Order");
-        OrderClientBundle.BUNDLE.css().ensureInjected();
+	@Override
+	public void onModuleLoad() {
+		logger.info("Inject clientBundle: Order");
+		OrderClientBundle.BUNDLE.css().ensureInjected();
 
-        new OrderApp().run();
-    }
+		new OrderApp().run();
+	}
 }

@@ -47,150 +47,124 @@ import elemental2.dom.HTMLDivElement;
 
 public class SupportView implements IsElement<HTMLDivElement> {
 
-    private static Logger logger = Logger
-            .getLogger(SupportView.class.getName());
+	private static Logger logger = Logger.getLogger(SupportView.class.getName());
 
-    private HTMLDivElement root = div().css(BUNDLE.css().contentMargin()).element();
+	private HTMLDivElement root = div().css(BUNDLE.css().contentMargin()).element();
 
-    private TextBox titleTextBox;
+	private TextBox titleTextBox;
 
-    private TextArea descriptionTextArea;
+	private TextArea descriptionTextArea;
 
-    private ListGroup<TodoItem> todoItemsListGroup;
+	private ListGroup<TodoItem> todoItemsListGroup;
 
-    private ListGroup<TodoItem> doneItemsListGroup;
+	private ListGroup<TodoItem> doneItemsListGroup;
 
-    private Select<Priority> prioritySelect;
+	private Select<Priority> prioritySelect;
 
-    private Button addButton;
+	private Button addButton;
 
-    private FieldsGrouping fieldsGrouping;
+	private FieldsGrouping fieldsGrouping;
 
-    public SupportView() {
-        logger.info("Create SupportView");
+	public SupportView() {
+		logger.info("Create SupportView");
 
-        fieldsGrouping = FieldsGrouping.create();
+		fieldsGrouping = FieldsGrouping.create();
 
-        this.titleTextBox = TextBox.create(CONSTANTS.title())
-                .groupBy(fieldsGrouping)
-                .setRequired(true)
-                .setAutoValidation(true);
+		this.titleTextBox = TextBox.create(CONSTANTS.title()).groupBy(fieldsGrouping).setRequired(true)
+				.setAutoValidation(true);
 
-        this.descriptionTextArea = TextArea.create(CONSTANTS.description())
-                .groupBy(fieldsGrouping)
-                .setRequired(true)
-                .setAutoValidation(true)
-                .setRows(1);
+		this.descriptionTextArea = TextArea.create(CONSTANTS.description()).groupBy(fieldsGrouping).setRequired(true)
+				.setAutoValidation(true).setRows(1);
 
-        this.prioritySelect = Select.ofEnum(CONSTANTS.priority(), Priority.values())
-                .groupBy(fieldsGrouping)
-                .setRequired(true)
-                .setAutoValidation(true);
+		this.prioritySelect = Select.ofEnum(CONSTANTS.priority(), Priority.values()).groupBy(fieldsGrouping)
+				.setRequired(true).setAutoValidation(true);
 
-        this.todoItemsListGroup = ListGroup.<TodoItem>create()
-                .setSelectable(false)
-                .setItemRenderer((listGroup, listItem) -> {
-                    listItem.css(Styles.padding_10)
-                          .appendChild(FlexLayout.create()
-                                .setJustifyContent(FlexJustifyContent.SPACE_AROUND)
-                                .appendChild(FlexItem.create().setFlexGrow(1)
-                                       .appendChild(BlockHeader
-                                             .create(listItem.getValue().getTitle(), listItem.getValue().getDescription())
-                                             .css(Styles.m_b_0)
-                                       )
-                                )
-                                .appendChild(FlexItem.create()
-                                       .css(Styles.m_l_10, Styles.m_r_10, Styles.m_t_10)
-                                       .appendChild(priorityBadge(listItem.getValue().getPriority()))
-                                )
-                                .appendChild(FlexItem.create()
-                                       .appendChild(Icons.ALL.check_bold_mdi()
-                                             .setColor(Color.GREEN)
-                                             .clickable()
-                                             .addClickListener(evt -> handleCheckOkClick(listItem.getValue()))
-                                       ))
-                          );
-                });
+		this.todoItemsListGroup = ListGroup.<TodoItem>create().setSelectable(false)
+				.setItemRenderer((listGroup, listItem) -> {
+					listItem.css(Styles.padding_10)
+							.appendChild(
+									FlexLayout
+											.create().setJustifyContent(
+													FlexJustifyContent.SPACE_AROUND)
+											.appendChild(
+													FlexItem.create().setFlexGrow(1)
+															.appendChild(
+																	BlockHeader
+																			.create(listItem.getValue().getTitle(),
+																					listItem.getValue()
+																							.getDescription())
+																			.css(Styles.m_b_0)))
+											.appendChild(FlexItem.create()
+													.css(Styles.m_l_10, Styles.m_r_10, Styles.m_t_10)
+													.appendChild(priorityBadge(listItem.getValue().getPriority())))
+											.appendChild(FlexItem.create()
+													.appendChild(Icons.ALL.check_bold_mdi().setColor(Color.GREEN)
+															.clickable().addClickListener(
+																	evt -> handleCheckOkClick(listItem.getValue())))));
+				});
 
-        this.doneItemsListGroup = ListGroup.<TodoItem>create()
-                .setSelectable(false)
-                .setItemRenderer((listGroup, listItem) -> {
-                    listItem
-                            .css(Styles.padding_10)
-                            .appendChild(FlexLayout.create()
-                                    .setJustifyContent(FlexJustifyContent.SPACE_AROUND)
-                                    .appendChild(FlexItem.create().setFlexGrow(1)
-                                         .appendChild(BlockHeader
-                                                 .create(listItem.getValue().getTitle(), listItem.getValue().getDescription())
-                                                 .css(Styles.m_b_0)
-                                            )
-                                    )
-                                    .appendChild(FlexItem.create()
-                                         .css(Styles.m_l_10, Styles.m_r_10, Styles.m_t_10)
-                                         .appendChild(priorityBadge(listItem.getValue().getPriority()))
-                                    )
-                            );
-                });
+		this.doneItemsListGroup = ListGroup.<TodoItem>create().setSelectable(false)
+				.setItemRenderer((listGroup, listItem) -> {
+					listItem.css(Styles.padding_10)
+							.appendChild(
+									FlexLayout
+											.create().setJustifyContent(
+													FlexJustifyContent.SPACE_AROUND)
+											.appendChild(
+													FlexItem.create().setFlexGrow(1)
+															.appendChild(
+																	BlockHeader
+																			.create(listItem.getValue().getTitle(),
+																					listItem.getValue()
+																							.getDescription())
+																			.css(Styles.m_b_0)))
+											.appendChild(FlexItem.create()
+													.css(Styles.m_l_10, Styles.m_r_10, Styles.m_t_10)
+													.appendChild(priorityBadge(listItem.getValue().getPriority()))));
+				});
 
-        this.addButton = Button.createPrimary(CONSTANTS.add())
-                .styler(style -> style.add(BUNDLE.css().addButton()))
-                .addClickListener(evt -> handleAddButtonClick());
+		this.addButton = Button.createPrimary(CONSTANTS.add()).styler(style -> style.add(BUNDLE.css().addButton()))
+				.addClickListener(evt -> handleAddButtonClick());
 
-        root.appendChild(Card.create(CONSTANTS.new_todo(), CONSTANTS.add_new_todo())
-                .appendChild(titleTextBox)
-                .appendChild(descriptionTextArea)
-                .appendChild(prioritySelect)
-                .appendChild(addButton)
-                .element());
+		root.appendChild(Card.create(CONSTANTS.new_todo(), CONSTANTS.add_new_todo()).appendChild(titleTextBox)
+				.appendChild(descriptionTextArea).appendChild(prioritySelect).appendChild(addButton).element());
 
-        root.appendChild(Card.create(CONSTANTS.todo_items())
-                .appendChild(todoItemsListGroup)
-                .element());
+		root.appendChild(Card.create(CONSTANTS.todo_items()).appendChild(todoItemsListGroup).element());
 
-        root.appendChild(Card.create(CONSTANTS.done_items())
-                .appendChild(doneItemsListGroup)
-                .element());
-    }
+		root.appendChild(Card.create(CONSTANTS.done_items()).appendChild(doneItemsListGroup).element());
+	}
 
-    void handleAddButtonClick() {
-        if (fieldsGrouping.validate().isValid()) {
-            TodoItem todoItem = new TodoItem(
-                    titleTextBox.getValue(),
-                    descriptionTextArea.getValue(),
-                    prioritySelect.getValue()
-            );
+	void handleAddButtonClick() {
+		if (fieldsGrouping.validate().isValid()) {
+			TodoItem todoItem = new TodoItem(titleTextBox.getValue(), descriptionTextArea.getValue(),
+					prioritySelect.getValue());
 
-            todoItemsListGroup.addItem(todoItem);
+			todoItemsListGroup.addItem(todoItem);
 
-            fieldsGrouping
-                    .clear()
-                    .clearInvalid();
-        }
-    }
+			fieldsGrouping.clear().clearInvalid();
+		}
+	}
 
-    private Badge priorityBadge(Priority priority) {
-        switch (priority) {
-            case High:
-                return Badge.create("High")
-                        .setBackground(Color.RED);
-            case Medium:
-                return Badge.create("Medium")
-                        .setBackground(Color.ORANGE);
-            case Low:
-            default:
-                return Badge.create("Low")
-                        .setBackground(Color.TEAL);
-        }
+	private Badge priorityBadge(Priority priority) {
+		switch (priority) {
+		case High:
+			return Badge.create("High").setBackground(Color.RED);
+		case Medium:
+			return Badge.create("Medium").setBackground(Color.ORANGE);
+		case Low:
+		default:
+			return Badge.create("Low").setBackground(Color.TEAL);
+		}
 
-    }
+	}
 
-    void handleCheckOkClick(TodoItem todoItem) {
-        todoItemsListGroup.removeItem(todoItem);
-        doneItemsListGroup.addItem(todoItem);
-    }
+	void handleCheckOkClick(TodoItem todoItem) {
+		todoItemsListGroup.removeItem(todoItem);
+		doneItemsListGroup.addItem(todoItem);
+	}
 
-    @Override
-    public HTMLDivElement element() {
-        return root;
-    }
+	@Override
+	public HTMLDivElement element() {
+		return root;
+	}
 }

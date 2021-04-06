@@ -24,9 +24,9 @@ import elemental2.dom.DomGlobal;
 
 public class SupportApp {
 
-    public void run() {
-    	SupportView supportView = new SupportView();
-        
-        DomGlobal.document.getElementById("supportContainer").appendChild(supportView.element());
-    }
+	public void run() {
+		SupportView supportView = new SupportView();
+
+		DomGlobal.document.getElementById("supportContainer").appendChild(supportView.element());
+	}
 }
