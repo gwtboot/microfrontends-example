@@ -1,6 +1,6 @@
 # Microfrontends Examples
 
-**Example of Micro Frontends in GWT and DominoUI.**
+**Example of Micro Frontends in GWT and DominoUI**
 
 Here are the microfrontends:
 
