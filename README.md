@@ -18,7 +18,7 @@ Here are the microfrontends:
 
 # Run the Examples
 
-To run the microfrontends you need to start GWT devmode separately for each GWT Maven projeect. 
+To run the microfrontends you need to start GWT devmode separately for each GWT Maven project. 
 Each project will be started in different port number for Jetty and GWT CodeServer.
 
 Go to each Maven project
