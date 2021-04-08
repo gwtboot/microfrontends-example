@@ -27,7 +27,7 @@ Go to each Maven project
 - **Support**: microfrontends-support/microfrontends-support-client
 - **Platform**: microfrontends-platform/microfrontends-platform-client
 
-... and run for each project:
+... and run each project with:
 
 ```
 mvn gwt:generate-module gwt:devmode
