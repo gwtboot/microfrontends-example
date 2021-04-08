@@ -34,3 +34,9 @@ mvn gwt:generate-module gwt:devmode
 ```
 
 You will have three GWT devmode instances started. After that just "Copy to Clipboard" the web app address into your web browser and run it just like shown on the screenshots above.
+
+# Good Articles about Microfrontends
+
+- [Micro Frontends - Martin Fowler](https://martinfowler.com/articles/micro-frontends.html)
+- [How to build Micro Frontends with React?](https://medium.com/cazoo/how-to-build-micro-frontends-with-react-271e651272bc)
+- [How We Build Micro Frontends](https://blog.bitsrc.io/how-we-build-micro-front-ends-d3eeeac0acfc)
