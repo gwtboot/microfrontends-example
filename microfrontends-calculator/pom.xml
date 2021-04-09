@@ -22,16 +22,13 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.example</groupId>
-	<artifactId>microfrontends-example</artifactId>
+	<artifactId>microfrontends-calculator</artifactId>
 	<version>1.0.0-SNAPSHOT</version>
-	<name>microfrontends-example</name>
+	<name>microfrontends-calculator</name>
 	<packaging>pom</packaging>
 
 	<modules>
-		<module>microfrontends-platform</module>
-		<module>microfrontends-order</module>
-		<module>microfrontends-support</module>
-		<module>microfrontends-calculator</module>
+		<module>microfrontends-calculator-client</module>
 	</modules>
 
 </project>
