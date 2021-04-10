@@ -6,7 +6,7 @@ import jsinterop.annotations.JsType;
 @JsType(namespace = JsPackage.GLOBAL, isNative = true)
 public class Calculator {
 	
-	public Calculator() {
+	public Calculator(String name) {
 	}
 
 	public native double calculateSum(Double[] values);

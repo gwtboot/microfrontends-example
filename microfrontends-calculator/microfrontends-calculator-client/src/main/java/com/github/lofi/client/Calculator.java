@@ -12,8 +12,8 @@ public class Calculator {
 
 	private static Logger logger = Logger.getLogger(Calculator.class.getName());
 
-	public Calculator() {
-		logger.info("Calculator...");
+	public Calculator(String name) {
+		logger.info("Calculator... " + name);
 	}
 
 	public double calculateSum(Double[] values) {

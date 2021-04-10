@@ -51,7 +51,7 @@ public class OrderApp {
 	}
 
 	protected void initLayout() {
-		Calculator calculator = new Calculator();
+		Calculator calculator = new Calculator("From Order");
 		OrderView orderView = new OrderView(calculator);
 
 		DomGlobal.document.getElementById("orderContainer").appendChild(orderView.element());

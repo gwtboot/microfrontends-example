@@ -16,7 +16,7 @@ public class CalculatorTest {
 	private Calculator calculator;
 
 	public CalculatorTest() {
-		this.calculator = new Calculator();
+		this.calculator = new Calculator("Test");
 	}
 
 	@Test
