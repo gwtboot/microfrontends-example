@@ -41,6 +41,7 @@ import org.dominokit.domino.ui.style.Color;
 import org.dominokit.domino.ui.style.Styles;
 import org.jboss.elemento.IsElement;
 
+import com.example.order.client.Calculator;
 import com.example.order.client.ui.TodoItem.Priority;
 
 import elemental2.dom.HTMLDivElement;
@@ -65,8 +66,12 @@ public class OrderView implements IsElement<HTMLDivElement> {
 
 	private FieldsGrouping fieldsGrouping;
 
-	public OrderView() {
+	private Calculator calculator;
+
+	public OrderView(Calculator calculator) {
 		logger.info("Create OrderView");
+		
+		this.calculator = calculator;
 
 		fieldsGrouping = FieldsGrouping.create();
 
@@ -143,6 +148,9 @@ public class OrderView implements IsElement<HTMLDivElement> {
 					prioritySelect.getValue());
 
 			todoItemsListGroup.addItem(todoItem);
+			
+			Double[] sumValues = {10.0, 11.0};
+			logger.info("Calculator: " + calculator.calculateSum(sumValues));
 
 			fieldsGrouping.clear().clearInvalid();
 		}

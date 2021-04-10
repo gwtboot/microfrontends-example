@@ -57,26 +57,17 @@
 					<startupUrls>
 						<url>/calculator/</url>
 					</startupUrls>
-					<compilerArgs>
-						<arg>-generateJsInteropExports</arg>
-						<arg>-compileReport</arg>
-						<arg>-style</arg>
-						<arg>PRETTY</arg>
-					</compilerArgs>
 					<devmodeArgs>
 						<arg>-logLevel</arg>
 						<arg>INFO</arg>
 						<arg>-generateJsInteropExports</arg>
 						<arg>-style</arg>
 						<arg>PRETTY</arg>
+						<arg>-port</arg>
+						<arg>9899</arg>
+						<arg>-codeServerPort</arg>
+						<arg>9891</arg>
 					</devmodeArgs>
-					<codeserverArgs>
-						<arg>-logLevel</arg>
-						<arg>INFO</arg>
-						<arg>-generateJsInteropExports</arg>
-						<arg>-style</arg>
-						<arg>PRETTY</arg>
-					</codeserverArgs>
 				</configuration>
 			</plugin>
 			<plugin>

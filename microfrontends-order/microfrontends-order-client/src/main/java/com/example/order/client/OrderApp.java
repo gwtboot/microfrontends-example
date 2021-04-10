@@ -18,14 +18,40 @@
  */
 package com.example.order.client;
 
+import java.util.logging.Logger;
+
 import com.example.order.client.ui.OrderView;
+import com.google.gwt.core.client.Callback;
+import com.google.gwt.core.client.ScriptInjector;
 
 import elemental2.dom.DomGlobal;
 
 public class OrderApp {
+	
+	private static Logger logger = Logger.getLogger(OrderApp.class.getName());
+
+	private static String MICROFRONTENDS_CALCULATOR_CLIENT = "http://localhost:9899/calculator/calculator.nocache.js";
 
 	public void run() {
-		OrderView orderView = new OrderView();
+		injectScript(MICROFRONTENDS_CALCULATOR_CLIENT);
+	}
+	
+	private void injectScript(String scriptUrl) {
+		ScriptInjector.fromUrl(scriptUrl).setCallback(new Callback<Void, Exception>() {
+			public void onFailure(Exception reason) {
+				logger.info("Script load failed: " + scriptUrl);
+			}
+
+			public void onSuccess(Void result) {
+				logger.info("Script load success: " + scriptUrl);
+					initLayout();
+			}
+		}).setWindow(ScriptInjector.TOP_WINDOW).inject();
+	}
+
+	protected void initLayout() {
+		Calculator calculator = new Calculator();
+		OrderView orderView = new OrderView(calculator);
 
 		DomGlobal.document.getElementById("orderContainer").appendChild(orderView.element());
 	}
