@@ -44,7 +44,8 @@ public class OrderApp {
 
 			public void onSuccess(Void result) {
 				logger.info("Script load success: " + scriptUrl);
-					initLayout();
+				
+				initLayout();
 			}
 		}).setWindow(ScriptInjector.TOP_WINDOW).inject();
 	}
