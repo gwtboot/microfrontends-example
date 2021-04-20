@@ -31,7 +31,7 @@
     <groupId>com.example</groupId>
     <artifactId>microfrontends-support-client</artifactId>
     <packaging>jar</packaging>
-    <name>support-client</name>
+    <name>microfrontends-support-client</name>
     <version>1.0.0-SNAPSHOT</version>
     <description>microfrontends-Support Client</description>
     
