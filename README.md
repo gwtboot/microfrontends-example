@@ -12,7 +12,7 @@ Calculator has no UI. It is a simple Calculator which exports JavaScript interfa
 
 ![Microfrontends Order](microfrontends-order/microfrontends-order-client/src/doc/microfrontends-order.png?raw=true "Microfrontends Order")
 
-Microfrontends Order uses Calculator and use the exported JavaScript with JsInterop native.
+Microfrontends Order uses Calculator by embracing the exported JavaScript native interface (JsInterop native = true).
 
 ## Microfrontends Support (Standalone)
 
