@@ -6,7 +6,7 @@ Here are the microfrontends:
 
 ## Microfrontends Calculator (Standalone)
 
-Calculator has no UI but it is a simple Calculator which is exported as JavaScript with JsInterop.
+Calculator has no UI. It is a simple Calculator which exports JavaScript interface with JsInterop.
 
 ## Microfrontends Order (Standalone)
 
