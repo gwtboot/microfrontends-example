@@ -31,6 +31,7 @@ Each project will be started in different port number for Jetty and GWT CodeServ
 
 Go to each Maven project
 
+- **Calculator**: microfrontends-calculator/microfrontends-calculator-client
 - **Order**: microfrontends-order/microfrontends-order-client
 - **Support**: microfrontends-support/microfrontends-support-client
 - **Platform**: microfrontends-platform/microfrontends-platform-client
