@@ -22,7 +22,12 @@ import java.util.logging.Logger;
 
 import com.google.gwt.core.client.EntryPoint;
 
+import elemental2.dom.CustomEvent;
+import elemental2.dom.DomGlobal;
+
 public class AppEntryPoint implements EntryPoint {
+	
+	private static final String CALCULATOR_CREATED_EVENT = "calculatorCreatedEvent";
 	
 	private static Logger logger = Logger.getLogger(AppEntryPoint.class.getName());
 
@@ -32,5 +37,10 @@ public class AppEntryPoint implements EntryPoint {
 		logger.info("onModuleLoad: create Calculator");
 		
 		new Calculator("From Calculator Microfrontends");
+		
+		// Create event and dispatch because we are finished...
+		CustomEvent<String> customEvent = new CustomEvent<String>(CALCULATOR_CREATED_EVENT);
+		
+		DomGlobal.document.getRootNode().dispatchEvent(customEvent);		
 	}
 }

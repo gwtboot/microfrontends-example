@@ -28,6 +28,11 @@
 			<groupId>com.github.gwtboot</groupId>
 			<artifactId>gwt-boot-starter</artifactId>
 		</dependency>
+		<!-- GWT Starter Elemento - Core -->
+		<dependency>
+			<groupId>com.github.gwtboot</groupId>
+			<artifactId>gwt-boot-starter-elemento-core</artifactId>
+		</dependency>
 
 		<!-- Unit Test with Mockito and JUnit -->
 		<dependency>

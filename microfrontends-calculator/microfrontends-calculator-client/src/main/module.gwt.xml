@@ -1,4 +1,6 @@
 <module rename-to="calculator">
 	<inherits name="com.github.gwtboot.starter.Starter" />
+	<inherits name="com.github.gwtboot.starter.ElementoCoreStarter" />
+	
 	<entry-point class='com.github.lofi.client.AppEntryPoint' />
 </module>

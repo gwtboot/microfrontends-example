@@ -32,6 +32,8 @@ public class OrderApp {
 
 	private static String MICROFRONTENDS_CALCULATOR_CLIENT = "http://localhost:9899/calculator/calculator.nocache.js";
 
+	private static final String CALCULATOR_CREATED_EVENT = "calculatorCreatedEvent";
+
 	public void run() {
 		injectScript(MICROFRONTENDS_CALCULATOR_CLIENT);
 	}
@@ -68,6 +70,15 @@ public class OrderApp {
 		// module name in the details so every app can discriminate on the events for
 		// the one module they're waiting for:
 		// https://developer.mozilla.org/en-US/docs/Web/API/CustomEvent/CustomEvent
+
+		DomGlobal.document.getRootNode().addEventListener(CALCULATOR_CREATED_EVENT,
+				event -> handleCalculatorCreatedEvent());
+
+		logger.info("Waiting for the " + CALCULATOR_CREATED_EVENT);
+	}
+
+	private void handleCalculatorCreatedEvent() {
+		logger.info("Handle the event after the Calculator is created " + CALCULATOR_CREATED_EVENT);
 
 		Calculator calculator = new Calculator("From Order");
 
