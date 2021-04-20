@@ -4,9 +4,15 @@
 
 Here are the microfrontends:
 
+## Microfrontends Calculator (Standalone)
+
+Calculator has no UI but it is a simple Calculator which is exported as JavaScript with JsInterop.
+
 ## Microfrontends Order (Standalone)
 
 ![Microfrontends Order](microfrontends-order/microfrontends-order-client/src/doc/microfrontends-order.png?raw=true "Microfrontends Order")
+
+Microfrontends Order uses Calculator and use the exported JavaScript with JsInterop native.
 
 ## Microfrontends Support (Standalone)
 
