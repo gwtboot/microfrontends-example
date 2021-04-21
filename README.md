@@ -42,7 +42,7 @@ Go to each Maven project
 mvn gwt:generate-module gwt:devmode
 ```
 
-You will have three GWT devmode instances started. After that just "Copy to Clipboard" the web app address into your web browser and run it just like shown on the screenshots above.
+You will have four GWT devmode instances started. After that just "Copy to Clipboard" the web app address into your web browser and run it just like shown on the screenshots above. To see all of them integrated you should see the **Microfrontends Platform** which integrates all microfrontends.
 
 # Good Articles about Microfrontends
 
