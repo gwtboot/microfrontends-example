@@ -4,9 +4,17 @@
 
 Here are the microfrontends:
 
+## Microfrontends Calculator (Standalone)
+
+- Calculator has no UI. It is a simple Calculator which exports JavaScript interface with JsInterop.
+- Calculator dispatches a CustomEvent *"calculatorCreatedEvent"* to inform all the listeners when Calculator is already created.
+
 ## Microfrontends Order (Standalone)
 
 ![Microfrontends Order](microfrontends-order/microfrontends-order-client/src/doc/microfrontends-order.png?raw=true "Microfrontends Order")
+
+- Microfrontends Order uses Calculator by embracing the exported JavaScript native interface (JsInterop native = true).
+- Order view will be executed only when the *"calculatorCreatedEvent"* dispatched by the Calculator.
 
 ## Microfrontends Support (Standalone)
 
@@ -23,6 +31,7 @@ Each project will be started in different port number for Jetty and GWT CodeServ
 
 Go to each Maven project
 
+- **Calculator**: microfrontends-calculator/microfrontends-calculator-client
 - **Order**: microfrontends-order/microfrontends-order-client
 - **Support**: microfrontends-support/microfrontends-support-client
 - **Platform**: microfrontends-platform/microfrontends-platform-client
