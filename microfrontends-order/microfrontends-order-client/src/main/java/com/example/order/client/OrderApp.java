@@ -24,7 +24,9 @@ import com.example.order.client.ui.OrderView;
 import com.google.gwt.core.client.Callback;
 import com.google.gwt.core.client.ScriptInjector;
 
+import elemental2.dom.CustomEvent;
 import elemental2.dom.DomGlobal;
+import elemental2.dom.Event;
 
 public class OrderApp {
 
@@ -71,14 +73,18 @@ public class OrderApp {
 		// the one module they're waiting for:
 		// https://developer.mozilla.org/en-US/docs/Web/API/CustomEvent/CustomEvent
 
-		DomGlobal.document.getRootNode().addEventListener(CALCULATOR_CREATED_EVENT,
-				event -> handleCalculatorCreatedEvent());
+		DomGlobal.document.addEventListener(CALCULATOR_CREATED_EVENT, event -> handleCalculatorCreatedEvent(event));
 
 		logger.info("Waiting for the " + CALCULATOR_CREATED_EVENT);
 	}
 
-	private void handleCalculatorCreatedEvent() {
-		logger.info("Handle the event after the Calculator is created " + CALCULATOR_CREATED_EVENT);
+	@SuppressWarnings("unchecked")
+	private void handleCalculatorCreatedEvent(Event event) {
+		logger.info("Handle the event after the Calculator is created " + CALCULATOR_CREATED_EVENT + " - Event type: "
+				+ event.type + " - Event target: " + event.target);
+
+		String detail = ((CustomEvent<String>) event).detail;
+		logger.info("CustomEvent detail: " + detail);
 
 		Calculator calculator = new Calculator("From Order");
 
