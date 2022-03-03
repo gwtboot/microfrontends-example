@@ -40,11 +40,11 @@ public class AppEntryPoint implements EntryPoint {
 		new Calculator("From Calculator Microfrontends");
 
 		// Create event and dispatch because we are finished...
-		createAndDispatchCustomEvent();
+		createAndDispatchCalculatorCreatedEvent();
 	}
 
 	@SuppressWarnings("unchecked")
-	private void createAndDispatchCustomEvent() {
+	private void createAndDispatchCalculatorCreatedEvent() {
 		logger.info("createAndDispatchCustomEvent: " + CALCULATOR_CREATED_EVENT);
 
 		CustomEventInit<String> customEventInit = CustomEventInit.create();

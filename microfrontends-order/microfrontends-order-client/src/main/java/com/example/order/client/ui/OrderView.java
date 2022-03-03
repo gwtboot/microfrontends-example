@@ -44,11 +44,16 @@ import org.jboss.elemento.IsElement;
 import com.example.order.client.Calculator;
 import com.example.order.client.ui.TodoItem.Priority;
 
+import elemental2.dom.CustomEvent;
+import elemental2.dom.CustomEventInit;
+import elemental2.dom.DomGlobal;
 import elemental2.dom.HTMLDivElement;
 
 public class OrderView implements IsElement<HTMLDivElement> {
 
 	private static Logger logger = Logger.getLogger(OrderView.class.getName());
+	
+	private static final String BUTTON_CHANGED_EVENT = "buttonChangedEvent";
 
 	private HTMLDivElement root = div().css(BUNDLE.css().contentMargin()).element();
 
@@ -143,6 +148,8 @@ public class OrderView implements IsElement<HTMLDivElement> {
 	}
 
 	void handleAddButtonClick() {
+		createAndDispatchButtonChangedEvent();
+		
 		if (fieldsGrouping.validate().isValid()) {
 			TodoItem todoItem = new TodoItem(titleTextBox.getValue(), descriptionTextArea.getValue(),
 					prioritySelect.getValue());
@@ -154,6 +161,17 @@ public class OrderView implements IsElement<HTMLDivElement> {
 
 			fieldsGrouping.clear().clearInvalid();
 		}
+	}
+	
+	@SuppressWarnings("unchecked")
+	private void createAndDispatchButtonChangedEvent() {
+		logger.info("createAndDispatchCustomEvent: " + BUTTON_CHANGED_EVENT);
+
+		CustomEventInit<String> customEventInit = CustomEventInit.create();
+		customEventInit.setDetail("Button clicked...");
+		CustomEvent<String> customEvent = new CustomEvent<String>(BUTTON_CHANGED_EVENT, customEventInit);
+
+		DomGlobal.document.dispatchEvent(customEvent);
 	}
 
 	private Badge priorityBadge(Priority priority) {

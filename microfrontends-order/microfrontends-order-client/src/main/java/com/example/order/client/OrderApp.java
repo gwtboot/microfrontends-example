@@ -35,6 +35,8 @@ public class OrderApp {
 	private static String MICROFRONTENDS_CALCULATOR_CLIENT = "http://localhost:9899/calculator/calculator.nocache.js";
 
 	private static final String CALCULATOR_CREATED_EVENT = "calculatorCreatedEvent";
+	
+	private static final String HELLO_MENTIONED_EVENT = "helloMentionedEvent";
 
 	public void run() {
 		injectScript(MICROFRONTENDS_CALCULATOR_CLIENT);
@@ -74,8 +76,10 @@ public class OrderApp {
 		// https://developer.mozilla.org/en-US/docs/Web/API/CustomEvent/CustomEvent
 
 		DomGlobal.document.addEventListener(CALCULATOR_CREATED_EVENT, event -> handleCalculatorCreatedEvent(event));
-
 		logger.info("Waiting for the " + CALCULATOR_CREATED_EVENT);
+		
+		DomGlobal.document.addEventListener(HELLO_MENTIONED_EVENT, event -> handleHelloMentionedEvent(event));
+		logger.info("Waiting for the " + HELLO_MENTIONED_EVENT);
 	}
 
 	@SuppressWarnings("unchecked")
@@ -92,4 +96,13 @@ public class OrderApp {
 
 		DomGlobal.document.getElementById("orderContainer").appendChild(orderView.element());
 	}
+	
+	@SuppressWarnings("unchecked")
+	private void handleHelloMentionedEvent(Event event) {
+		logger.info("Event handled: " + HELLO_MENTIONED_EVENT);
+		
+		String detail = ((CustomEvent<String>) event).detail;
+		logger.info("CustomEvent detail: " + detail);
+	}
+
 }

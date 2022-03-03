@@ -43,11 +43,16 @@ import org.jboss.elemento.IsElement;
 
 import com.example.support.client.ui.TodoItem.Priority;
 
+import elemental2.dom.CustomEvent;
+import elemental2.dom.DomGlobal;
+import elemental2.dom.Event;
 import elemental2.dom.HTMLDivElement;
 
 public class SupportView implements IsElement<HTMLDivElement> {
 
 	private static Logger logger = Logger.getLogger(SupportView.class.getName());
+
+	private static final String BUTTON_CHANGED_EVENT = "buttonChangedEvent";
 
 	private HTMLDivElement root = div().css(BUNDLE.css().contentMargin()).element();
 
@@ -67,6 +72,8 @@ public class SupportView implements IsElement<HTMLDivElement> {
 
 	public SupportView() {
 		logger.info("Create SupportView");
+
+		DomGlobal.document.addEventListener(BUTTON_CHANGED_EVENT, event -> handleButtonChangedEvent(event));
 
 		fieldsGrouping = FieldsGrouping.create();
 
@@ -135,6 +142,16 @@ public class SupportView implements IsElement<HTMLDivElement> {
 
 		root.appendChild(Card.create(CONSTANTS.done_items()).setHeaderBackground(Color.AMBER)
 				.appendChild(doneItemsListGroup).element());
+	}
+
+	@SuppressWarnings("unchecked")
+	private void handleButtonChangedEvent(Event event) {
+		logger.info("Handle Button ChangedEvent");
+
+		String detail = ((CustomEvent<String>) event).detail;
+		logger.info("CustomEvent detail: " + detail);
+
+		addButton.setTextContent(addButton.getTextContent() + " - " + "after buttonChangedEvent" + " - " + detail);
 	}
 
 	void handleAddButtonClick() {

@@ -28,6 +28,8 @@ import org.dominokit.domino.ui.style.ColorScheme;
 import com.google.gwt.core.client.Callback;
 import com.google.gwt.core.client.ScriptInjector;
 
+import elemental2.dom.CustomEvent;
+import elemental2.dom.CustomEventInit;
 import elemental2.dom.DomGlobal;
 
 public class PlatformApp {
@@ -38,6 +40,8 @@ public class PlatformApp {
 
 	private static String MICROFRONTENDS_SUPPORT_CLIENT = "http://localhost:7777/support/support.nocache.js";
 
+	private static final String HELLO_MENTIONED_EVENT = "helloMentionedEvent";
+
 	public void run() {
 		injectScript(MICROFRONTENDS_ORDER_CLIENT);
 	}
@@ -46,6 +50,9 @@ public class PlatformApp {
 		Layout layout = Layout.create(CONSTANTS.appTitle()).removeLeftPanel().show(ColorScheme.BLUE);
 
 		DomGlobal.document.getElementById("platformContainer").appendChild(layout.element());
+
+		// Create event and dispatch...
+		createAndDispatchHelloMentionedEvent();
 	}
 
 	private void injectScript(String scriptUrl) {
@@ -65,5 +72,16 @@ public class PlatformApp {
 				}
 			}
 		}).setWindow(ScriptInjector.TOP_WINDOW).inject();
+	}
+
+	@SuppressWarnings("unchecked")
+	private void createAndDispatchHelloMentionedEvent() {
+		logger.info("createAndDispatchCustomEvent: " + HELLO_MENTIONED_EVENT);
+
+		CustomEventInit<String> customEventInit = CustomEventInit.create();
+		customEventInit.setDetail("Hello world mentioned...");
+		CustomEvent<String> customEvent = new CustomEvent<String>(HELLO_MENTIONED_EVENT, customEventInit);
+
+		DomGlobal.document.dispatchEvent(customEvent);
 	}
 }

@@ -18,15 +18,33 @@
  */
 package com.example.support.client;
 
+import java.util.logging.Logger;
+
 import com.example.support.client.ui.SupportView;
 
+import elemental2.dom.CustomEvent;
 import elemental2.dom.DomGlobal;
+import elemental2.dom.Event;
 
 public class SupportApp {
+	
+	private static Logger logger = Logger.getLogger(SupportApp.class.getName());
+	
+	private static final String HELLO_MENTIONED_EVENT = "helloMentionedEvent";
 
 	public void run() {
 		SupportView supportView = new SupportView();
 
 		DomGlobal.document.getElementById("supportContainer").appendChild(supportView.element());
+		
+		DomGlobal.document.addEventListener(HELLO_MENTIONED_EVENT, event -> handleHelloMentionedEvent(event));
+	}
+
+	@SuppressWarnings("unchecked")
+	private void handleHelloMentionedEvent(Event event) {
+		logger.info("Event handled: " + HELLO_MENTIONED_EVENT);
+		
+		String detail = ((CustomEvent<String>) event).detail;
+		logger.info("CustomEvent detail: " + detail);
 	}
 }
