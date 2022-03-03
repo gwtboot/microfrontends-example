@@ -79,7 +79,7 @@ public class OrderApp {
 		logger.info("Waiting for the " + CALCULATOR_CREATED_EVENT);
 		
 		DomGlobal.document.addEventListener(HELLO_MENTIONED_EVENT, event -> handleHelloMentionedEvent(event));
-		logger.info("Waiting for the " + HELLO_MENTIONED_EVENT);
+		logger.info("OrderApp: Waiting for the " + HELLO_MENTIONED_EVENT);
 	}
 
 	@SuppressWarnings("unchecked")
@@ -99,7 +99,7 @@ public class OrderApp {
 	
 	@SuppressWarnings("unchecked")
 	private void handleHelloMentionedEvent(Event event) {
-		logger.info("Event handled: " + HELLO_MENTIONED_EVENT);
+		logger.info("OrderApp: Event handled: " + HELLO_MENTIONED_EVENT);
 		
 		String detail = ((CustomEvent<String>) event).detail;
 		logger.info("CustomEvent detail: " + detail);

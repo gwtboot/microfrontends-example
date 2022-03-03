@@ -38,11 +38,12 @@ public class SupportApp {
 		DomGlobal.document.getElementById("supportContainer").appendChild(supportView.element());
 		
 		DomGlobal.document.addEventListener(HELLO_MENTIONED_EVENT, event -> handleHelloMentionedEvent(event));
+		logger.info("SupportApp: Waiting for the " + HELLO_MENTIONED_EVENT);
 	}
 
 	@SuppressWarnings("unchecked")
 	private void handleHelloMentionedEvent(Event event) {
-		logger.info("Event handled: " + HELLO_MENTIONED_EVENT);
+		logger.info("SupportApp: Event handled: " + HELLO_MENTIONED_EVENT);
 		
 		String detail = ((CustomEvent<String>) event).detail;
 		logger.info("CustomEvent detail: " + detail);

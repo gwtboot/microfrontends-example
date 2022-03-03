@@ -24,6 +24,7 @@ import java.util.logging.Logger;
 
 import org.dominokit.domino.ui.layout.Layout;
 import org.dominokit.domino.ui.style.ColorScheme;
+import org.gwtproject.timer.client.Timer;
 
 import com.google.gwt.core.client.Callback;
 import com.google.gwt.core.client.ScriptInjector;
@@ -76,12 +77,20 @@ public class PlatformApp {
 
 	@SuppressWarnings("unchecked")
 	private void createAndDispatchHelloMentionedEvent() {
-		logger.info("createAndDispatchCustomEvent: " + HELLO_MENTIONED_EVENT);
+		// Waiting to have all the Microfrontends loaded
+		Timer timer = new Timer() {
+			@Override
+			public void run() {
+				logger.info("createAndDispatchCustomEvent: " + HELLO_MENTIONED_EVENT);
 
-		CustomEventInit<String> customEventInit = CustomEventInit.create();
-		customEventInit.setDetail("Hello world mentioned...");
-		CustomEvent<String> customEvent = new CustomEvent<String>(HELLO_MENTIONED_EVENT, customEventInit);
+				CustomEventInit<String> customEventInit = CustomEventInit.create();
+				customEventInit.setDetail("Hello world mentioned...");
+				CustomEvent<String> customEvent = new CustomEvent<String>(HELLO_MENTIONED_EVENT, customEventInit);
 
-		DomGlobal.document.dispatchEvent(customEvent);
+				DomGlobal.document.dispatchEvent(customEvent);
+			}
+		};
+
+		timer.schedule(15000);
 	}
 }
