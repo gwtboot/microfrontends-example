@@ -24,6 +24,8 @@ import static org.jboss.elemento.Elements.div;
 
 import java.util.logging.Logger;
 
+import com.example.support.client.ui.TodoItem.Priority;
+
 import org.dominokit.domino.ui.badges.Badge;
 import org.dominokit.domino.ui.button.Button;
 import org.dominokit.domino.ui.cards.Card;
@@ -38,10 +40,9 @@ import org.dominokit.domino.ui.header.BlockHeader;
 import org.dominokit.domino.ui.icons.Icons;
 import org.dominokit.domino.ui.lists.ListGroup;
 import org.dominokit.domino.ui.style.Color;
+import org.dominokit.domino.ui.style.StyleType;
 import org.dominokit.domino.ui.style.Styles;
 import org.jboss.elemento.IsElement;
-
-import com.example.support.client.ui.TodoItem.Priority;
 
 import elemental2.dom.CustomEvent;
 import elemental2.dom.DomGlobal;
@@ -69,6 +70,8 @@ public class SupportView implements IsElement<HTMLDivElement> {
 	private Button addButton;
 
 	private FieldsGrouping fieldsGrouping;
+
+	private int countButton = 0;
 
 	public SupportView() {
 		logger.info("Create SupportView");
@@ -151,7 +154,9 @@ public class SupportView implements IsElement<HTMLDivElement> {
 		String detail = ((CustomEvent<String>) event).detail;
 		logger.info("CustomEvent detail: " + detail);
 
-		addButton.setTextContent(addButton.getTextContent() + " - " + "after buttonChangedEvent" + " - " + detail);
+		countButton++;
+		addButton.setTextContent("After buttonChangedEvent" + " - " + detail + " - " + countButton);
+		addButton.setButtonType(StyleType.DANGER);
 	}
 
 	void handleAddButtonClick() {
