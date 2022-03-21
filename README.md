@@ -2,7 +2,8 @@
 
 **Example of Micro Frontends in GWT and DominoUI**
 
-The structure of all the micro frontends looks like this UML class diagram below.
+The structure of all the micro frontends looks like this UML class diagram below. All micro frontends exchange the
+messages through the *CustomEvent*.
 
 <img src="https://raw.githubusercontent.com/gwtboot/microfrontends-example/master/uml-microfrontends.png" width=50%>
 
