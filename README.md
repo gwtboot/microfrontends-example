@@ -4,7 +4,7 @@
 
 The structure of all the micro frontends looks like this UML class diagram below.
 
-<img src="https://raw.githubusercontent.com/gwtboot/microfrontends-example/master/uml-microfrontends.png" width="150">
+<img src="https://raw.githubusercontent.com/gwtboot/microfrontends-example/master/uml-microfrontends.png" width=50%>
 
 Here are the microfrontends in detail:
 
