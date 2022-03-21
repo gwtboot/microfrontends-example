@@ -2,7 +2,11 @@
 
 **Example of Micro Frontends in GWT and DominoUI**
 
-Here are the microfrontends:
+The structure of all the micro frontends looks like this UML class diagram below.
+
+![UML Structure of the Microfrontends](uml-microfrontends.png?raw=true "UML Structure of the Microfrontends")
+
+Here are the microfrontends in detail:
 
 ## Microfrontends Calculator (Standalone)
 
